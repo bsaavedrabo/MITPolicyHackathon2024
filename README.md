@@ -20,7 +20,8 @@ To run educational app for a general audience:
 1. Install Flask: pip install Flask
 2. Run app by running the command: flask run
 3. Add OPEN AI API on .env file. If more help is needed for this step, reference: https://platform.openai.com/docs/quickstart 
-4. 
+4. Run pip install flask-wtf
+5. 
 
 
 To run data dashboard:
