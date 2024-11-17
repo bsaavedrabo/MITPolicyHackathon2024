@@ -111,12 +111,12 @@ def save_data(merged_df, output_file):
 
 def main():
     # Specify the full paths to the input files
-    demographics_file = '/home/danayala/MITPolicyHackathon2024/data/data/demographics.csv'  # Path to demographics file
-    commitments_file = '/home/danayala/MITPolicyHackathon2024/data/data/current_commitments.csv'  # Path to current commitments file
-    prior_summary_file = '/home/danayala/MITPolicyHackathon2024/data/data/prior_commitments.csv'  # Path to prior summary file
+    demographics_file = './data/data/demographics.csv'  # Path to demographics file
+    commitments_file = './data/data/current_commitments.csv'  # Path to current commitments file
+    prior_summary_file = './data/data/prior_commitments.csv'  # Path to prior summary file
     
     # Specify the output file path for cleaned data
-    output_file = '/home/danayala/MITPolicyHackathon2024/merged_data.csv'  # Path to save merged data
+    output_file = './data/data/merged_data.csv'  # Path to save merged data
 
     # Step 1: Load the data
     demographics_df, commitments_df = load_data(demographics_file, commitments_file)
