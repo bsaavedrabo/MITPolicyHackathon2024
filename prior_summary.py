@@ -75,13 +75,13 @@ def summarize_prior_commitments(prior_commitments_df):
     """
     # Group by 'cdcno' to summarize data
     summary = prior_commitments_df.groupby('cdcno').agg(
-        total_commitments=('case_number', 'size'),  # Count occurrences (i.e., number of commitments)
-        offenses_description_list=('offense_description', lambda x: list(x)),  # List of offense descriptions for each individual
-        first_commitment_date=('offense_begin_date', 'min'),  # First offense date
-        last_commitment_date=('offense_end_date', 'max'),  # Last offense date
-        total_release_dates=('release_date', 'nunique'),  # Number of distinct release dates
-        total_commitment_duration_months=('offense_time_with_enhancement_months', 'sum'),  # Sum of commitment durations in months
-        avg_commitment_duration_months=('offense_time_with_enhancement_months', 'mean')  # Average duration in months per commitment
+        total_commitments_prior=('case_number', 'size'),  # Count occurrences (i.e., number of commitments)
+        offenses_description_list_prior=('offense_description', lambda x: list(x)),  # List of offense descriptions for each individual
+        first_commitment_date_prior=('offense_begin_date', 'min'),  # First offense date
+        last_commitment_date_prior=('offense_end_date', 'max'),  # Last offense date
+        total_release_dates_prior=('release_date', 'nunique'),  # Number of distinct release dates
+        total_commitment_duration_months_prior=('offense_time_with_enhancement_months', 'sum'),  # Sum of commitment durations in months
+        avg_commitment_duration_months_prior=('offense_time_with_enhancement_months', 'mean')  # Average duration in months per commitment
     ).reset_index()
 
     return summary
