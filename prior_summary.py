@@ -2,19 +2,20 @@ import pandas as pd
 import os
 import pathlib
 
+# Get the current working directory
 current_dir = pathlib.Path(os.getcwd())
 
 def load_prior_commitments(file_path):
     """
-    Load the prior commitments data from a CSV or Excel file.
+    Load the prior commitments data from a CSV file and clean the columns.
     :param file_path: Path to the prior commitments data file
     :return: pandas DataFrame with the loaded data
     """
     # Load the file into a DataFrame
     df = pd.read_csv(file_path, low_memory=False)
 
-    # Clean column names: strip spaces and convert to lowercase
-    df.columns = df.columns.str.strip().str.lower()
+    # Clean column names: strip spaces, convert to lowercase, and replace spaces with underscores
+    df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_')
 
     # Print column names for debugging
     print("Columns in loaded file:", df.columns)
@@ -68,8 +69,8 @@ def save_summary_to_csv(summary_df, output_file):
 
 def main():
     # Specify the file paths
-    prior_commitments_file = current_dir/ 'data/data/prior_commitments.csv'  # Correct file path
-    output_file = current_dir/'data/data/prior_summary.csv'  # Output file path
+    prior_commitments_file = current_dir / 'data/data/prior_commitments.csv'  # Adjusted path for the input file
+    output_file = current_dir / 'data/data/prior_summary.csv'  # Output file path
 
     # Load the prior commitments data
     prior_commitments_df = load_prior_commitments(prior_commitments_file)
@@ -87,5 +88,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-    
